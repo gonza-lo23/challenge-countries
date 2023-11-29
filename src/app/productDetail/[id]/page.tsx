@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-async-client-component */
 import Image from 'next/image'
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 
@@ -9,19 +10,24 @@ export default async function Home({params}:{params:{id: string}}) {
   const data = await res.json();
   const isTrue = true;
   const sas = ['pepe','sas', 'chcahco'];
+  // const searchParams= useSearchParams();
+
 
   const renderList = (info) => {
 
 
    const pps = info.map((item, index) => {
-    const filteredBorders = item.borders.map(border => border);
 
-      return(
-      <li key={index} 
-      className="bg-green-300 text-black rounded-md w-auto h-auto m-4 ">
-          {item.borders}
-      </li> 
-      );
+    
+        
+       if(item = true){
+      <div key={index} 
+      className=" bg-blue-400 text-black rounded-md ">
+         {item}
+      </div> }else{
+        <div className='bg-green-300 text-black rounded-md w-auto h-auto m-4'>no tiene</div>
+      }
+      
 
     });
     return pps ;
@@ -53,18 +59,16 @@ export default async function Home({params}:{params:{id: string}}) {
              <li className='my-4'>Region: {pp.region}</li>
             <li className='my-4'>sub Religion: {pp.subregion}</li>
           </ul>
-        <div className='grid  '>
-          <ul className="mt-12 text-xl ">
-            <li>Border Countries:</li>
-          
-            <div className="flex mt-4 w-auto h-auto">
-            { isTrue ? (<ul className='flex w-auto h-auto gap-x-6'>{renderList(data)}</ul>) : (<li> no hay nada </li>)}
-          </div>
+        <div className='mt-16 text-xl'>
+          <ul className="">
+            <li>Border Countries:</li> 
           </ul>
+          </div>
+            <div className=" mt-4 text-xl">
+            { isTrue ? (<div className='grid grid-rows-4  grid-flow-col gap-4'>{renderList(pp.borders)}</div>) : (<div>'nothing</div>)}
           </div>
           </div>
           {/* descripcion 2 */}
-
           <div className='col-start-3 col-span-3 lg:mt-20 '>
           <ul className="lg:mt-24 md:ml-8 text-xl text-black">
           <li className='my-4'>Top level Domain: {pp.name.common}</li>
@@ -73,9 +77,6 @@ export default async function Home({params}:{params:{id: string}}) {
           </ul>
           </div>   
   </div>
-
-
-
   )
 })
 }
