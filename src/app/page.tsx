@@ -15,13 +15,13 @@ export default async function Home({params}:{params:{id: string}}) {
       <>
      {/*empieza search */}
      
-     <div className='ml-36'>
+     <div className='dark:text-white ml-36'>
        <SearchBar />
        </div>
      
       {/*termina*/}
 
-    <div className="bg-gray-100 p-8">
+    <div className="bg-gray-100 dark:bg-gray-950 p-8">
       <div className="container text-black mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
         {/* Column 1 */}
         {data.map ((post, index)=>{
@@ -31,10 +31,10 @@ export default async function Home({params}:{params:{id: string}}) {
           key={index}
           href={`/productDetail/name/[id]`} 
           as={`/productDetail/${post.name.common}`} >
-          <div className="bg-white w-fit h-96 shadow-md ">
+          <div className="dark:bg-black dark:text-white bg-white w-fit h-96 shadow-md ">
             <img src={post.flags.png} />
             <div className='ml-8 mb-8'>
-            <h1 className="text-2xl text-black font-bold mt-4">{post.name.common}</h1>
+            <h1 className="dark:text-white text-2xl text-black font-bold mt-4">{post.name.common}</h1>
             <ul className="mt-2 text-lg text-bold">
               <li>Population: {post.population}</li>
               <li>Region: {post.region}</li>

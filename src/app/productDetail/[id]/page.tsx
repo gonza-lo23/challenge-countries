@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-async-client-component */
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
@@ -8,37 +7,21 @@ export default async function Home({params}:{params:{id: string}}) {
  
   const res = await fetch(`https://restcountries.com/v3.1/name/${params.id}?`);
   const data = await res.json();
-  const isTrue = true;
-  const sas = ['pepe','sas', 'chcahco'];
   // const searchParams= useSearchParams();
 
-
-  const renderList = (info) => {
-
-
-   const pps = info.map((item, index) => {
-
-    
-        
-       if(item = true){
-      <div key={index} 
-      className=" bg-blue-400 text-black rounded-md ">
-         {item}
-      </div> }else{
-        <div className='bg-green-300 text-black rounded-md w-auto h-auto m-4'>no tiene</div>
-      }
-      
-
-    });
-    return pps ;
-  };
+const renderList = (items)=>{
+items?.forEach((e,k) => {
+  <div key={k} className='dark:text-white'>{e}</div>
+  console.log(e)
+});
+}
 
   return (
 <>
  {
-  data.map((pp)=>{
+  data.map((pp:any,index:any)=>{
     return(
- <div className='lg:grid  lg:grid-row-1 lg:grid-cols-3 gap-4 w-screen h-screen m-12 md:grid-cols-1 lg:px-24'>
+ <div key={index} className='dark:bg-gray-950   lg:grid  lg:grid-row-1 lg:grid-cols-3 gap-4 w-screen h-screen  md:grid-cols-1 lg:px-24'>
      <div className="lg:col-start-1 lg:col-end-2
        shadow-md h-fit w-fit">
         <Link href='/'>
@@ -51,8 +34,9 @@ export default async function Home({params}:{params:{id: string}}) {
         {/*titulo y descripcion 1*/}
         </div>
           <div className=' col-start-2 col-end-3
+          dark:text-white
           ml-8 mb-8 text-bold text-black lg:mt-20'>
-          <h1 className="text-4xl text-black font-bold mt-4 mb-8">{pp.name.common}</h1>
+          <h1 className="dark:text-white text-4xl text-black font-bold mt-4 mb-8">{pp.name.common}</h1>
           <ul className="text-xl mt-8 mb-12">
             <li className='my-4'>Native name: {pp.name.common}</li>
              <li className='my-4'>Population: M{pp.population}</li>
@@ -65,15 +49,15 @@ export default async function Home({params}:{params:{id: string}}) {
           </ul>
           </div>
             <div className=" mt-4 text-xl">
-            { isTrue ? (<div className='grid grid-rows-4  grid-flow-col gap-4'>{renderList(pp.borders)}</div>) : (<div>'nothing</div>)}
+            <div className='dark:text-white text-black grid grid-rows-4  grid-flow-col gap-4'>{pp.borders}</div>
           </div>
           </div>
           {/* descripcion 2 */}
-          <div className='col-start-3 col-span-3 lg:mt-20 '>
+          <div className='col-start-3 col-span-3 lg:mt-20  '>
           <ul className="lg:mt-24 md:ml-8 text-xl text-black">
-          <li className='my-4'>Top level Domain: {pp.name.common}</li>
-          <li className='my-4'>Curriencies: {pp.name.common}</li>
-            <li className='my-4' >Languages: {pp.name.common}</li>
+          <li className='my-4 dark:text-white'>Top level Domain: {pp.name.common}</li>
+          <li className='my-4 dark:text-white'>Curriencies: {pp.name.common}</li>
+            <li className='my-4 dark:text-white' >Languages: {pp.name.common}</li>
           </ul>
           </div>   
   </div>
