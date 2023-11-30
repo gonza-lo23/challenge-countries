@@ -37,28 +37,53 @@ items?.forEach((e,k) => {
           dark:text-white
           ml-8 mb-8 text-bold text-black lg:mt-20'>
           <h1 className="dark:text-white text-4xl text-black font-bold mt-4 mb-8">{pp.name.common}</h1>
-          <ul className="text-xl mt-8 mb-12">
-            <li className='my-4'>Native name: {pp.name.common}</li>
-             <li className='my-4'>Population: M{pp.population}</li>
-             <li className='my-4'>Region: {pp.region}</li>
-            <li className='my-4'>sub Religion: {pp.subregion}</li>
-          </ul>
-        <div className='mt-16 text-xl'>
-          <ul className="">
-            <li>Border Countries:</li> 
-          </ul>
+          <div className="text-lg mt-8 mb-12">
+          <div className='flex mb-4'>
+              <div className='font-bold mr-2'>Native name:</div>
+              <div className=''>{pp.name.common} </div>
+              </div>
+              <div className='flex mb-4'>
+              <div className='font-bold mr-2'>Population:</div>
+              <div className=''>{pp.population} </div>
+              </div>
+              <div className='flex mb-4'>
+              <div className='font-bold mr-2'>Region:</div>
+              <div className=''>{pp.region} </div>
+              </div>
+              <div className='flex mb-4'>
+              <div className='font-bold mr-2'>Sub Region:</div>
+              <div className=''>{pp.region} </div>
+              </div>
+          </div>
+        <div className='mt-16 text-lg'>
+            <div className='font-bold'>Border Countries:</div> 
           </div>
             <div className=" mt-4 text-xl">
-            <div className='dark:text-white text-black grid grid-rows-4  grid-flow-col gap-4'>{pp.borders}</div>
+            <div className='
+              dark:text-white
+             text-black grid 
+             grid-rows-4  
+             grid-flow-col gap-4'>
+              {pp.borders}
+              </div>
           </div>
           </div>
           {/* descripcion 2 */}
           <div className='col-start-3 col-span-3 lg:mt-20  '>
-          <ul className="lg:mt-24 md:ml-8 text-xl text-black">
-          <li className='my-4 dark:text-white'>Top level Domain: {pp.name.common}</li>
-          <li className='my-4 dark:text-white'>Curriencies: {pp.name.common}</li>
-            <li className='my-4 dark:text-white' >Languages: {pp.name.common}</li>
-          </ul>
+          <div className="lg:mt-24 md:ml-8 text-lg  text-black">
+          <div className='flex mb-4 dark:text-white'>
+              <div className='font-bold mr-2'>Top level Domain:</div>
+              <div className=''>{pp.name.common} </div>
+              </div>
+              <div className='flex mb-4 dark:text-white'>
+              <div className='font-bold mr-2'>Language:</div>
+              <div className=''>{pp.name.common} </div>
+              </div>
+              <div className='flex mb-4 dark:text-white'>
+              <div className='font-bold mr-2'>Currencies:</div>
+              <div className=''>{pp.name.common} </div>
+              </div>
+            </div>
           </div>   
   </div>
   )
