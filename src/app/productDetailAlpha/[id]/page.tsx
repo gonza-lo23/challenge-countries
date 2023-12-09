@@ -1,20 +1,20 @@
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import renderListBorders from '../../components/renderListBorders';
+
 
 export default async function Home({params}:{params:{id: string}}) {
  
-  const res = await fetch(`https://restcountries.com/v3.1/name/${params.id}?`);
+  const res = await fetch(`https://restcountries.com/v3.1/alpha/${params.id}?`);
   const data = await res.json();
 
-
+ 
 
 
   return (
 <>
  {
-  data.map((country:any,index:any)=>{
+  data.map((pp:any,index:any)=>{
     return(
     <div key={index} 
      className='
@@ -29,57 +29,55 @@ export default async function Home({params}:{params:{id: string}}) {
          <button className="
          dark:bg-gray-600
          dark:text-white
-           h-14 w-20 bg-gray-300
-           mb-8 hover:bg-gray-400
-         text-gray-600 font-bold rounded-lg">
+         h-14 w-20 bg-gray-300 mb-8 hover:bg-gray-400 text-gray-600 font-bold rounded-lg">
           Back
           </button> 
           </Link>
-          <img src={country.flags.png}
-          alt="Image 1" className="w-full h-96 object-fill" />
+          <img src={pp.flags.png}
+          alt="Image 1" className="w-full h-96 object-fill  " />
         {/*titulo y descripcion 1*/}
         </div>
           <div className=' col-start-2 col-end-3
           dark:text-white
           ml-8 mb-8 text-bold text-black lg:mt-20'>
-          <h1 className="dark:text-white text-4xl text-black font-bold mt-4 mb-8">{country.name.common}</h1>
+          <h1 className="dark:text-white text-4xl text-black font-bold mt-4 mb-8">{pp.name.common}</h1>
           <div className="text-lg mt-8 mb-12">
           <div className='flex mb-4'>
               <div className='font-bold mr-2'>Native name:</div>
-              <div className=''>{country.name.official} </div>
+              <div className=''>{pp.name.official } </div>
               </div>
-
               <div className='flex mb-4'>
               <div className='font-bold mr-2'>Population:</div>
-              <div className=''>{country.population} </div>
+              <div className=''>{pp.population} </div>
               </div>
               <div className='flex mb-4'>
               <div className='font-bold mr-2'>Region:</div>
-              <div className=''>{country.region} </div>
+              <div className=''>{pp.region} </div>
               </div>
               <div className='flex mb-4'>
               <div className='font-bold mr-2'>Sub Region:</div>
-              <div className=''>{country.subregion} </div>
+              <div className=''>{pp.subregion} </div>
               </div>
           </div>
         <div className='mt-16 text-lg'>
             <div className='font-bold'>Border Countries:</div> 
           </div>
-            <div className=" text-black mt-4 text-xl">
+            <div className="w-screen mt-4 text-xl">
             <div className='
-              dark:text-white
-             text-black flex 
-              gap-4'>
+             dark:text-white
+             text-black flex flex-row
+               w-auto
+               gap-4'>
               
               {
-                country.borders?.map((countryBorders:any, index:any)=>{
+                pp.borders?.map((p:any, k:any)=>{
                  return( 
-                  <div key={index} className='flex dark:bg-gray-700  bg-white border-2 border-gray-400 w-16 rounded-md '>
-                 <div className='dark:text-gray-200 p-2 text-gray-800' >
+                  <div key={k} className='flex dark:bg-gray-700  bg-white border-2 border-gray-400 w-16 rounded-md '>
+                 <div className='dark:text-gray-300 p-2 text-gray-800' >
                   <Link 
                   href={`/productDetailAlpha/name/[id]`} 
-                  as={`/productDetailAlpha/${countryBorders}`} >
-                    {countryBorders}
+                  as={`/productDetailAlpha/${p}`} >
+                    {p}
                   </Link>
                   </div>
                   </div>)
@@ -94,15 +92,15 @@ export default async function Home({params}:{params:{id: string}}) {
           <div className="lg:mt-24 md:ml-8 text-lg  text-black">
           <div className='flex mb-4 dark:text-white'>
               <div className='font-bold mr-2'>Top level Domain:</div>
-              <div className=''>{country.name.common} </div>
+              <div className=''>{pp.name.common} </div>
               </div>
               <div className='flex mb-4 dark:text-white'>
               <div className='font-bold mr-2'>Language:</div>
-              <div className=''>{country.name.common} </div>
+              <div className=''>{pp.name.common} </div>
               </div>
               <div className='flex mb-4 dark:text-white'>
               <div className='font-bold mr-2'>Currencies:</div>
-              <div className=''>{country.name.common} </div>
+              <div className=''>{pp.name.common} </div>
               </div>
             </div>
           </div>   
