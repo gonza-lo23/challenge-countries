@@ -61,20 +61,21 @@ export default async function Home({params}:{params:{id: string}}) {
 
   return (
     <div className="grid bg-gray-100 dark:bg-gray-900 p-8">
-     {/*empieza search */}
-     <div className='grid grid-cols-2 w-screen h-auto'>
-     <div className=' dark:text-white mx-36'>
-       <SearchBar />
-       </div>
-      {/*termina*/}
-      <div className='dark:text-white mx-36 w-auto ml-96 pl-32'>
-       <Continents />
-       </div>
-       </div>
-      <div className="container text-black mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
-        {/* Column 1 */}
-       
-      {filterAndMapData(data, params.id)}
+   {/*empieza search */}
+   <div className='grid grid-cols-2 w-auto mx-20 h-auto'>
+   <div className='grid col-start-1  dark:text-white '>
+     <SearchBar />
+     </div>
+    {/*termina*/}
+    <div className='grid col-start-2 dark:text-white justify-end '>
+     <Continents />
+     </div>
+     </div>
+    <div className="container text-black mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+      {/* Column 1 */}
+     
+    {filterAndMapData(data, params.id)}
+
 
 
 

@@ -16,13 +16,16 @@ export function ThemeSwitcher() {
 
   return (
     
-    <div>         
+    <div className="ml-16 d-flex justify-content-end"> 
+            
   {
     theme === 'dark' ? 
       (<div
-       onClick={() => setTheme('light')}></div>  ):
+      className=" cursor-pointer"
+       onClick={() => setTheme('light')}>Light Mode</div>  ):
        (<div
-         onClick={() => setTheme('dark')}></div>  )
+        className=" cursor-pointer"
+         onClick={() => setTheme('dark')}>Dark Mode</div>  )
   }
   </div>
   )

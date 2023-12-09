@@ -24,7 +24,7 @@ export default async function Home({params}:{params:{id: string}}) {
      gap-4 w-screen h-screen  
      md:grid-cols-1 lg:px-24'>
      <div className="lg:col-start-1 lg:col-end-2
-       shadow-md h-fit w-fit">
+        h-fit w-fit">
         <Link href='/'>
          <button className="
          dark:bg-gray-600

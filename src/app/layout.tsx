@@ -2,7 +2,6 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link';
-import {DarkMode} from './components/DarkMode';
 import {Providers} from "./providers.jsx";
 import {ThemeSwitcher} from './components/ThemeSwitcher.jsx';
 
@@ -20,7 +19,7 @@ export default function RootLayout({
       <html lang="en" className="dark">
       <body className={inter.className}>
       <div className="bg-gray-100 dark:bg-gray-900 w-screen h-screen ">
-    <header className="grid grid-cols-2 w-auto h-16 bg-white dark:bg-gray-950 p-4 shadow-lg ">
+    <header className="grid grid-cols-1 w-auto h-16 bg-white dark:bg-gray-950 p-4 shadow-lg ">
       <div className="-ml-0.5 pl-32 col-start-1 grid-flow-col  col-end-1 mx-auto ">
         <Link 
         href="/" 
@@ -30,13 +29,14 @@ export default function RootLayout({
           text-2xl font-semibold
         text-black ">Where in the world ?
         </Link>          
-        </div>
-        <div className=' text-white grid col-start-2 '>
-          <DarkMode/>
-        </div>           
+        </div>          
     </header>
     <Providers>
+      <div className='grid grid-cols-3 w-auto'>
+        <div className='col-start-3'>
       <ThemeSwitcher/>
+      </div>
+      </div>
         {children}
         </Providers>
         </div>
