@@ -35,22 +35,28 @@ const SearchBar = () => {
           placeholder="Search for a country..."
           className="
             row-span-1
+            pl-4
             w-96 h-16
             dark:border-gray-800 
+            dark:bg-gray-700
             dark:text-white
             text-xl
             border p-2 rounded-lg"
         />
         {open && 
+        
          <div   
              className='
+             bg-gray-200 dark:bg-gray-800
+             dark:text-white
              row-span-2 mt-1 p-1 
              pt-3 grid grid-flow-rows 
              rounded-md w-96 bg-white'>
           {results?.map((result, index) => (
            
             <Link 
-              className='hover:bg-gray-200'
+              className='pl-4 p-2             hover:dark:bg-gray-700
+              hover:bg-gray-300'
               key={index}
               href={`/productDetail/name/[id]`} 
               as={`/productDetail/${result.name.common}`}>
